@@ -1,0 +1,38 @@
+# eclipse
+bin
+*.launch
+.settings
+.metadata
+.classpath
+.project
+
+# idea
+out
+*.ipr
+*.iws
+*.iml
+.idea
+
+# gradle
+build
+.gradle
+
+# other
+eclipse
+run
+gradle
+libs
+target
+config.yml
+*.log
+*.mp3
+*.m4a
+*.wav
+*.mkv
+*.exe
+*.txt
+*.traineddata
+*.png
+data.yml
+src/main/template/Version.java
+src/main/java/net/simplyrin/jeongseongryon/utils/Version.java
