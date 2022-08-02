@@ -1,4 +1,4 @@
-package net.simplyrin.jeongseongryon.commands;
+package net.simplyrin.jeongseongryon.commands.botowner;
 
 import net.simplyrin.jeongseongryon.JeongSeongRyon;
 import net.simplyrin.jeongseongryon.classes.BaseCommand;

@@ -145,6 +145,15 @@ public class JeongSeongRyon {
 			return;
 		}
 		
+		try {
+			System.out.println(this.jda.getSelfUser().getName());
+			for (var guild : this.jda.getGuilds()) {
+				System.out.println(guild.getName() + "@" + guild.getId());
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		Runtime.getRuntime().addShutdownHook(new Thread(() -> {
 			this.shutdown();
 		}));

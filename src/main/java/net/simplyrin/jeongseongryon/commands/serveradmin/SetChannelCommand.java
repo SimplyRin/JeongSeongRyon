@@ -1,4 +1,4 @@
-package net.simplyrin.jeongseongryon.commands;
+package net.simplyrin.jeongseongryon.commands.serveradmin;
 
 import net.simplyrin.jeongseongryon.JeongSeongRyon;
 import net.simplyrin.jeongseongryon.classes.BaseCommand;
@@ -53,12 +53,12 @@ public class SetChannelCommand extends BaseCommand {
 
 	@Override
 	public CommandPermission getPermission() {
-		return CommandPermission.BotOwner;
+		return CommandPermission.ServerAdministrator;
 	}
 
 	@Override
 	public void execute(JeongSeongRyon instance, PandaMessageEvent event, String[] args) {
-		instance.getConfig().set("ReceiveChannel", event.getChannel().getIdLong());
+		instance.getData().set("Settings." + event.getGuild().getId() + ".ReceiveChannel", event.getChannel().getIdLong());
 		instance.saveData();
 		
 		event.reply("チャンネルを設定しました。");

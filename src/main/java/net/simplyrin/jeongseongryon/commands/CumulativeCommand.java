@@ -86,14 +86,16 @@ public class CumulativeCommand extends BaseCommand {
 			}
 		}
 		
+		var guild = event.getGuild();
+		
 		HashMap<String, Integer> map = new HashMap<>();
 		
-		for (String name : instance.getData().getSection("data").getKeys()) {
+		for (String name : instance.getData().getSection("data." + guild.getId()).getKeys()) {
 			System.out.println("key: " + name);
 			
-			for (String messageId : instance.getData().getSection("data." + name + ".stats").getKeys()) {
-				// String date = instance.getData().getString("data." + name + ".stats." + stats + ".date");
-				boolean win = instance.getData().getBoolean("data." + name + ".stats." + messageId + ".win");
+			for (String messageId : instance.getData().getSection("data." + guild.getId() + "." + name + ".stats").getKeys()) {
+				// String date = instance.getData().getString("data." + guild.getId() + "." + name + ".stats." + stats + ".date");
+				boolean win = instance.getData().getBoolean("data." + guild.getId() + "." + name + ".stats." + messageId + ".win");
 				
 				// System.out.println("name: " + name + ", date: " + date + ", win: " + win);
 				
