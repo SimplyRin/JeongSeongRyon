@@ -43,7 +43,8 @@ public class EventHandler extends ListenerAdapter {
 	
 	@Override
 	public void onMessageDelete(MessageDeleteEvent event) {
-		var rChannelId = this.instance.getConfig().getLong("ReceiveChannel", 0L);
+		var guild = event.getGuild();
+		var rChannelId = this.instance.getConfig().getLong("Settings." + event.getGuild().getId() + ".ReceiveChannel", 0L);
 		
 		var channel = event.getChannel();
 		
@@ -56,12 +57,12 @@ public class EventHandler extends ListenerAdapter {
 		
 		System.out.println("メッセージ削除: " + messageId);
 		
-		for (String name : this.instance.getData().getSection("data").getKeys()) {
-			for (String msgId : this.instance.getData().getSection("data." + name + ".stats").getKeys()) {
+		for (String name : this.instance.getData().getSection("data." + guild.getId()).getKeys()) {
+			for (String msgId : this.instance.getData().getSection("data." + guild.getId() + "." + name + ".stats").getKeys()) {
 				if (messageId.equals(msgId)) {
 					deleted = true;
 					
-					this.instance.getData().set("data." + name + ".stats." + msgId, null);
+					this.instance.getData().set("data." + guild.getId() + "." + name + ".stats." + msgId, null);
 				}
 			}
 		}
@@ -75,7 +76,8 @@ public class EventHandler extends ListenerAdapter {
 	
 	@Override
 	public void onMessageReceived(MessageReceivedEvent event) {
-		var rChannelId = this.instance.getConfig().getLong("ReceiveChannel", 0L);
+		var guild = event.getGuild();
+		var rChannelId = this.instance.getConfig().getLong("Settings." + event.getGuild().getId() + ".ReceiveChannel", 0L);
 		
 		var channel = event.getChannel();
 		
@@ -120,8 +122,8 @@ public class EventHandler extends ListenerAdapter {
 			var p2 = new ComulativeData(vs[1]);
 			
 			for (var value : Arrays.asList(p1, p2)) {
-				this.instance.getData().set("data." + value.getName() + ".stats." + messageId + ".date", date);
-				this.instance.getData().set("data." + value.getName() + ".stats." + messageId + ".win", value.isWon());
+				this.instance.getData().set("data." + guild.getId() + "." + value.getName() + ".stats." + messageId + ".date", date);
+				this.instance.getData().set("data." + guild.getId() + "." + value.getName() + ".stats." + messageId + ".win", value.isWon());
 				
 				System.out.println("追加: " + value.getName() + " [date: " + date + ", win: " + value.isWon() + "]");
 			}
