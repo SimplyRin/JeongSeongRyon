@@ -166,7 +166,9 @@ public class JeongSeongRyon {
 	
 	public void shutdown() {
 		this.saveData();
+		System.out.println("データを保存しました。");
 		
+		System.out.println("シャットダウンしています...");
 		this.jda.shutdown();
 	}
 	
