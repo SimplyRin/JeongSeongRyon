@@ -44,7 +44,7 @@ public class EventHandler extends ListenerAdapter {
 	@Override
 	public void onMessageDelete(MessageDeleteEvent event) {
 		var guild = event.getGuild();
-		var rChannelId = this.instance.getConfig().getLong("Settings." + event.getGuild().getId() + ".ReceiveChannel", 0L);
+		var rChannelId = this.instance.getData().getLong("Settings." + event.getGuild().getId() + ".ReceiveChannel", 0L);
 		
 		var channel = event.getChannel();
 		
@@ -77,7 +77,7 @@ public class EventHandler extends ListenerAdapter {
 	@Override
 	public void onMessageReceived(MessageReceivedEvent event) {
 		var guild = event.getGuild();
-		var rChannelId = this.instance.getConfig().getLong("Settings." + event.getGuild().getId() + ".ReceiveChannel", 0L);
+		var rChannelId = this.instance.getData().getLong("Settings." + event.getGuild().getId() + ".ReceiveChannel", 0L);
 		
 		var channel = event.getChannel();
 		
