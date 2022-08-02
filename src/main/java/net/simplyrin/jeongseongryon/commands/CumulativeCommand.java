@@ -137,6 +137,11 @@ public class CumulativeCommand extends BaseCommand {
 			previous = value.getValue();
 		}
 		
+		if (sb.isEmpty()) {
+			event.reply("データが記録されていません。");
+			return;
+		}
+		
 		event.reply(sb.toString());
 	}
 	
