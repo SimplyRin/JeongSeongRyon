@@ -143,11 +143,11 @@ public class EventHandler extends ListenerAdapter {
 		private String data;
 		
 		public String getName() {
-			return this.data.replace("○", "").replace("×", "").replace(" ", "").replace("　", "").trim();
+			return this.data.replace("○", "").replace("〇", "").replace("×", "").replace("✕", "").replace(" ", "").replace("　", "").trim();
 		}
 		
 		public boolean isWon() {
-			return this.data.contains("○");
+			return this.data.contains("○") || this.data.contains("〇");
 		}
 	}
 
