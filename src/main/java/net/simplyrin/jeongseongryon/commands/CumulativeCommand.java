@@ -91,7 +91,7 @@ public class CumulativeCommand extends BaseCommand {
 		HashMap<String, Integer> map = new HashMap<>();
 		
 		for (String name : instance.getData().getSection("data." + guild.getId()).getKeys()) {
-			System.out.println("key: " + name);
+			System.out.println("[data.yml:key] data." + name);
 			
 			for (String messageId : instance.getData().getSection("data." + guild.getId() + "." + name + ".stats").getKeys()) {
 				// String date = instance.getData().getString("data." + guild.getId() + "." + name + ".stats." + stats + ".date");
