@@ -40,7 +40,7 @@ public class UpdateCommand extends BaseCommand {
 
 	@Override
 	public String getCommand() {
-		return "!update";
+		return "!jsr-update";
 	}
 
 	@Override
@@ -79,7 +79,7 @@ public class UpdateCommand extends BaseCommand {
 				File now = new File("JeongSeongRyon-1.0-jar-with-dependencies.jar");
 				if (now.delete()) {
 					file.renameTo(now);
-					message.editMessage("PandaEntus を更新しました。再起動してください。").complete();
+					message.editMessage("JeongSeongRyon を更新しました。再起動してください。").complete();
 				} else {
 					message.editMessage("更新に失敗しました。Bot を停止して " + file.getName() + " を " + now.getName() + " に置き換えて使用してください。").complete();
 				}

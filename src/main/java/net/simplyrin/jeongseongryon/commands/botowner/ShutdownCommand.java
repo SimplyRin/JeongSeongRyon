@@ -33,7 +33,7 @@ public class ShutdownCommand extends BaseCommand {
 	
 	@Override
 	public String getCommand() {
-		return "!shutdown";
+		return "!jsr-shutdown";
 	}
 
 	@Override

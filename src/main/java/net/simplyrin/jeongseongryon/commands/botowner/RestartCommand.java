@@ -30,7 +30,7 @@ public class RestartCommand extends BaseCommand {
 
 	@Override
 	public String getCommand() {
-		return "!restart";
+		return "!jsr-restart";
 	}
 
 	@Override
